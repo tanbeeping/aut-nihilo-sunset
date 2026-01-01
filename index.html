@@ -55,7 +55,7 @@
             .serif-detail { font-size: 1.8rem; }
         }
 
-        /* Fixed Marker Positioning to prevent drift */
+        /* Fixed Marker Positioning */
         .marker-container {
             width: 12px; height: 12px;
             display: flex; align-items: center; justify-content: center;
@@ -95,8 +95,11 @@
         .leaflet-control-container { display: none; }
 
         .page-footer {
-            position: fixed; bottom: 20px; width: 100%;
-            z-index: 20; pointer-events: none; text-align: center;
+            width: 100%;
+            z-index: 20;
+            pointer-events: none; 
+            text-align: center;
+            padding: 1.5rem 0; /* Padding creates the safe distance from screen edge */
         }
         .footer-text {
             font-family: 'Inter', sans-serif; font-size: 0.65rem;
@@ -120,17 +123,17 @@
             </div>
         </header>
 
-        <div class="w-full max-w-sm interactive-card p-5 rounded-2xl shadow-2xl mt-auto mb-10 overflow-hidden">
-            <div id="tour-list" class="max-h-[250px] overflow-y-auto custom-scroll pr-1 text-white">
+        <div class="w-full max-w-sm interactive-card p-5 rounded-2xl shadow-2xl mt-auto overflow-hidden">
+            <div id="tour-list" class="max-h-[30vh] md:max-h-[250px] overflow-y-auto custom-scroll pr-1 text-white">
                 </div>
         </div>
-    </div>
 
-    <footer class="page-footer">
-        <div class="footer-text p-2">
-            This is a fan project and not an official source for Stefanie Sun or Aut Nihilo Concert Tour.
-        </div>
-    </footer>
+        <footer class="page-footer">
+            <div class="footer-text p-2">
+                This is a fan project and not an official source for Stefanie Sun or Aut Nihilo Concert Tour.
+            </div>
+        </footer>
+    </div>
 
     <script>
         const cityMap = {
