@@ -193,7 +193,7 @@
             { city: "Tianjin", dates: ["2026-09-11","2026-09-13"], lat: 39.1236, lng: 117.1981 },
             { city: "Hangzhou", dates: ["2026-10-09","2026-10-11"], lat: 30.2741, lng: 120.1551 },
             { city: "Changsha", dates: ["2026-11-06","2026-11-08"], lat: 28.2278, lng: 112.9388 },
-            { city: "Guangzhou", dates: ["TBA"], lat: 23.1291, lng: 113.2644 }
+            { city: "Guangzhou", dates: ["2026-11-27","2026-11-29","2026-12-04","2026-12-06"], lat: 23.1291, lng: 113.2644 }
         ];
 
         async function init() {
@@ -260,7 +260,7 @@
 
         function createAccordion(id, title, shows, isOpen, todayStr) {
             if (shows.length === 0) return '';
-            return `<details id="${id}" ${isOpen ? 'open' : ''} class="group"><summary class="flex justify-between items-center py-1 text-[9px] font-bold uppercase tracking-[0.3em] opacity-40 group-hover:opacity-100 transition-opacity">${title}<svg class="w-2.5 h-2.5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"></path></svg></summary><div class="mt-2 space-y-2 pb-2">${shows.map(show => {
+            return `<details id="${id}" ${isOpen ? 'open' : ''} class="group"><summary class="flex justify-between items-center py-1 text-[9px] font-bold uppercase tracking-[0.3em] opacity-40 group-hover:opacity-100 transition-opacity"><span>${title} <span class="ml-1 opacity-70">(${shows.length})</span></span><svg class="w-2.5 h-2.5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"></path></svg></summary><div class="mt-2 space-y-2 pb-2">${shows.map(show => {
                 const isToday = show.date === todayStr;
                 const isTBA = show.date === "TBA";
                 const opacity = (!isTBA && new Date(show.date.replace(/-/g, '/')) < new Date(todayStr.replace(/-/g, '/'))) ? 'opacity-30' : 'opacity-100';
