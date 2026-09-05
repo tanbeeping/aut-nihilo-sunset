@@ -204,7 +204,7 @@
             let activeCity = tourData.find(c => c.dates.some(d => d === "TBA" || new Date(d.replace(/-/g, '/')) >= localStartOfDay)) || tourData[0];
             
             const map = L.map('map', { center: [20, 115], zoom: 4, zoomControl: false, attributionControl: false });
-            L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png').addTo(map);
+                L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}').addTo(map);
 
             const flattened = [];
             tourData.forEach(city => city.dates.forEach(d => flattened.push({ city: city.city, date: d })));
